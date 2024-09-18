@@ -1,0 +1,13 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile.Base
+    volumes:
+      - type: bind
+        source: app
+        target: /app
+    environment:
+      - SHELL=/bin/bash
+      - ROS_DISTRO=humble
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
